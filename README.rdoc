@@ -1,0 +1,8 @@
+Basic Objectives:
+  List Model - Has Many Items
+  Item Model - Belongs To List
+  List Controller - With All CRUD Actions
+  Item Controller - With All CRUD Actions
+  Links to navigate to lists and items and back to your lists - (eg. good user experience all around)
+Bonus:
+  Style your lists and items. (hint: when we generate a controller we get css files too. Look under app/assets/stylesheets. Add code where appropriate)
