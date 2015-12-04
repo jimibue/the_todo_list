@@ -1,0 +1,28 @@
+<%= form_for @item do |f| %>
+
+    <% if @item.list_id != nil && @item.list_id > 0 %>
+        <%= f.hidden_field :list_id, :value => @item.list_id %>
+    <% else %>
+
+         <%= f.hidden_field :list_id, :value => params[:list_id] %>
+    <% end %>
+    <hr>
+
+    <%= f.label :name %>
+    <%= f.text_field  :name%>
+    <br>
+
+    <%= f.label :description %>
+    <%= f.text_area :description%>
+    <br>
+    <%= f.label :completed%>
+    <%= f.check_box :completed%>
+    <br>
+
+
+    <br>
+    <%= f.label :priority%>
+    <%= f.select :priority, [1,2,3,4,5,6,7,8,9,10] %>
+    <br>
+    <%= f.submit %>
+<% end %>

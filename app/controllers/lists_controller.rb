@@ -1,6 +1,8 @@
 class ListsController < ApplicationController
+
   def index
       @lists = List.all
+      #binding.pry
   end
   def new
     @list = List.new

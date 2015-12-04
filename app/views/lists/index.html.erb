@@ -1,26 +1,27 @@
-<h1>Lists#index</h1>
-<p>Find me in app/views/lists/index.html.erb</p>
+
+<div class="big">Lists
+  <span class="small"><%= link_to 'New List +', new_list_path %></span>
+</div>
+
 <br>
-<%= link_to 'New List', new_list_path %>
+
 <br>
 <% if @lists.any? %>
     <% @lists.each do |list| %>
+        <h1 class="list-name" ><%= link_to "#{list.name}.", list_path(list)%>
+        </h1>
 
-        <%= link_to "-#{list.name}", list_path(list)%>
-        <%= link_to 'Edit', edit_list_path(list)%>
-        <%=  link_to 'Delete',list_path(list), method: :delete %>
 
-        <% if list.items.any? %>
-            <% list.items do |item| %>
-                <h1>item.name</h1>
+        <!--<% if list.items.any? %>-->
 
-            <% end %>
-        <% else %>
-            <p>no items</p>
-        <% end %>
+            <!--<% list.items.each do |item| %>-->
+                <!--<h4><%= item.name %></h4>-->
+            <!--<% end %>-->
 
-        <br>
-        <br>
+        <!--<% else %>-->
+            <!--<p>no items</p>-->
+        <!--<% end %>-->
+
     <% end %>
     <%else %>
 <h3>No lists</h3>

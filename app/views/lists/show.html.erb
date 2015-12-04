@@ -1,18 +1,28 @@
-<h1>Lists#show</h1>
-<p>Find me in app/views/lists/show.html.erb</p>
-<h1><%= @list.name %></h1>
-
+<div class="big"><%= @list.name %>
+  <span class="small">
+    <%= link_to "edit", edit_list_path(@list, :list_id => @list.id)%>
+    <%=  link_to 'X',list_path(@list,:list_id => @list.id),
+                 method: :delete, data:{confirm: 'Really delete this item'} %>
+   </span>
+</div>
 <% if @items.any? %>
     <br>
     <% @items.each do |item| %>
+        <div class="big">
+          <%= link_to "-#{item.name}", item_path(item,:list_id => @list.id) %>
 
-        <%= link_to item.name, item_path(item) %>
+          <span class="small"><%= link_to 'Edit', edit_item_path(item,:list_id => @list.id) %>
+            <%= link_to 'X', item_path(item,:list_id => @list.id),
+                        method: :delete, data:{confirm: 'Really delete this item'} %>
+          </span>
+        </div>
         <br>
-        <%= link_to 'Add item', new_item_path %>
-        <%= link_to 'Edit item', edit_item_path(item) %>
-        <%= link_to 'Delete', item_path(item) %>
-    <% end %>
-    <% else %>
-    <p>No items in list</p>
-<% end %>
 
+
+        <br>
+    <% end %>
+<% else %>
+    <p>No items in list</p>
+
+<% end %>
+<%= link_to 'Add item', new_item_path(:list_id => @list.id) %>
